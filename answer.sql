@@ -1,0 +1,71 @@
+-- WEEK 8 ASSIGNMENT: MYSQL DATABASE BACKUP AND RESTORE
+
+
+-- QUESTION 1: CREATING A COMPLETE DATABASE BACKUP
+--
+-- Command:
+-- mysqldump -u root -p sales > sales_backup.sql
+--
+-- Explanation:
+-- mysqldump is a MySQL command-line utility used to
+-- export a database into an SQL backup file.
+--
+-- -u root: Specifies root as the MySQL username.
+-- -p: Prompts the user to enter the MySQL password.
+-- sales: Specifies the database to back up.
+-- > sales_backup.sql: Saves the backup in a file
+-- named sales_backup.sql.
+--
+-- This command creates a complete logical backup of
+-- the sales database, including its tables, structure,
+-- and data.
+--
+-- Importance of regular database backups:
+-- 1. Protects data against accidental deletion.
+-- 2. Helps recover data after hardware or software failure.
+-- 3. Prevents permanent data loss.
+-- 4. Supports disaster recovery.
+-- 5. Allows restoration of data before major changes.
+
+
+-- QUESTION 2: BACKING UP ALL DATABASES
+--
+-- Command:
+-- mysqldump -u root -p --all-databases > all_databases_backup.sql
+--
+-- Explanation:
+-- This command creates a backup of all databases
+-- available on the MySQL server.
+--
+-- -u root: Specifies root as the MySQL username.
+-- -p: Prompts the user to enter the MySQL password.
+-- --all-databases: Exports all databases on the server.
+-- > all_databases_backup.sql: Saves the backup in a
+-- file named all_databases_backup.sql.
+--
+-- Importance of backing up all databases before migration:
+-- 1. Ensures that no database is left behind.
+-- 2. Preserves database structures and records.
+-- 3. Makes migration to another server easier.
+-- 4. Reduces the risk of data loss during migration.
+-- 5. Supports restoration of databases on the new server.
+
+
+-- QUESTION 3: DATA-ONLY DATABASE BACKUP
+--
+-- Command:
+-- mysqldump -u root -p --no-create-info sales > sales_data_backup.sql
+--
+-- Explanation:
+-- This command exports only the data stored in the
+-- sales database without exporting table creation
+-- statements.
+--
+-- -u root: Specifies root as the MySQL username.
+-- -p: Prompts for the MySQL password.
+-- --no-create-info: Excludes table structure statements.
+-- sales: Specifies the database to back up.
+-- > sales_data_backup.sql: Saves the data backup file.
+--
+-- Data-only backups are useful when the table structures
+-- already exist and only the records need to be restored.
